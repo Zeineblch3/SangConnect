@@ -1,6 +1,11 @@
 const applicationName = "SangConnect";
 const applicationVersion = "1.0.0";
 
+console.log(`Application : ${applicationName}`);
+console.log(`Version : ${applicationVersion}`);
 
-console.log('Application : ${applicationName}');
-console.log('Version : ${applicationVersion}');
+function displayApplicationInfo(){
+    console.log(applicationName);
+    console.log(applicationVersion);
+}
+displayApplicationInfo();
