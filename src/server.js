@@ -27,7 +27,7 @@ const server = http.createServer((req,res) => {
         return;
     }
     if (req.url === "/api/health" && req.method === "GET"){
-        sendJson(res, 200, {status: "ok", service: "SangConnect"});
+        sendJson(res, 200, {status: "ok", application: "SangConnect", timestamps: new Date().toISOString(), nodeVersion: process.version});
         return;
     }
     if(req.url === "/api/info" && req.method === "GET"){
