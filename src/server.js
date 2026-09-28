@@ -42,8 +42,12 @@ const server = http.createServer((req,res) => {
         sendJson(res, 200, {method: req.method, url: req.url, headers: req.headers});
         return;
     }
-    res.sendJson(res, 404, {error: "Route non trouvée", path: req.url, method: req.method, timestamp: new Date().toISOString()});
-    res.end("Route non trouvée");
+    sendJson(res, 404, {
+        error: "Route non trouvée",
+        path: req.url,
+        method: req.method,
+        timestamp: new Date().toISOString()
+    });
 
 });
 server.listen(port, () => { console.log(`Serveur démarré sur http://localhost:${port}`)});

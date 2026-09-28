@@ -49,6 +49,11 @@ Activité 7 :
 
 curl -i http://localhost:3000/api/diagnostic
 HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Mon, 28 Sep 2026 00:02:27 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
 
 curl -i http://localhost:3000/api/health
 HTTP/1.1 200 OK
@@ -58,6 +63,17 @@ HTTP/1.1 200 OK
 
 curl -i -X POST  http://localhost:3000/api/diagnostic
 HTTP/1.1 405 Method Not Allowed
+{"error":"Méthode non autorisée","method":"POST","allowedMethods":["GET"]}
+
+curl -i http://localhost:3000/api/inconnue
+HTTP/1.1 404 Not Found
+Content-Type: application/json; charset=utf-8
+Date: Mon, 28 Sep 2026 00:07:23 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"error":"Route non trouvée","path":"/api/inconnue","method":"GET","timestamp":"2026-09-28T00}
 
 1. l'option -i permet d'afficher les en-tetes HTTP 
 2. on utilise la route /health pour vérifier si le serveur est opérationnel, elle doit etre rapide 
@@ -72,3 +88,5 @@ Activité 9 :
    routes/ : gestion routes
    controller/ : logique req
    service/ : logique metier
+
+sedJson() : permet d'envoyer une réponse HTTP au format JSON, elle doit recevoir res , statusCode et data 
